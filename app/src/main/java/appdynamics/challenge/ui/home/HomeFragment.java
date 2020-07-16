@@ -35,11 +35,19 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        final Button buyticket = root.findViewById(R.id.ticketRequest);
-        buyticket.setOnClickListener(new View.OnClickListener() {
+        final Button buyNormalTicket = root.findViewById(R.id.normalTicket);
+        buyNormalTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeFragment.this.getContext(), "Working", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeFragment.this.getContext(), "Buying normal ticket", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final Button buyReducedTicket = root.findViewById(R.id.reducedRequest);
+        buyReducedTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeFragment.this.getContext(), "Buying reduced ticket", Toast.LENGTH_SHORT).show();
             }
         });
 
