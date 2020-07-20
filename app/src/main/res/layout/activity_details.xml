@@ -24,16 +24,24 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/details_title"
+        <appdynamics.challenge.ui.home.SquareFrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:maxLines="2"
-            android:padding="16dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:theme="@style/Theme.AppCompat" />
+            >
+
+            <TextView
+                android:id="@+id/details_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:maxLines="2"
+                android:padding="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:theme="@style/Theme.AppCompat" />
+
+        </appdynamics.challenge.ui.home.SquareFrameLayout>
+
+
 
 
     </LinearLayout>

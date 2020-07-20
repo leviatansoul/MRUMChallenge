@@ -32,6 +32,9 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
+
         gridView = (GridView) root.findViewById(R.id.ticket_gridview);
         gridAdapter = new GridAdapter(root.getContext());
         gridView.setAdapter(gridAdapter);
@@ -45,6 +48,9 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("name", item.getName());
                 startActivity(intent);
+
+
+
             }
         });
 

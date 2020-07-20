@@ -1,6 +1,9 @@
 
 package appdynamics.challenge.ui.home;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents an Item in our application. Each item has a name, id, full size image url and
  * thumbnail url.
@@ -8,11 +11,12 @@ package appdynamics.challenge.ui.home;
 public class Item {
 
 
+
     public static Item[] ITEMS = new Item[] {
-            new Item("Normal Ticket", "Romain Guy", "normal"),
-            new Item("Student Ticket", "Romain Guy", "student"),
-            new Item("Onde Day Ticket", "Romain Guy", "oneday"),
-            new Item("Three Days Ticket", "Romain Guy", "threeday"),
+            new Item("Normal Ticket", "2.8", "normal"),
+            new Item("Student Ticket", "1.2", "student"),
+            new Item("Onde Day Ticket", "11", "oneday"),
+            new Item("Three Days Ticket", "18", "threedays"),
     };
 
     public static Item getItem(int id) {
@@ -28,10 +32,10 @@ public class Item {
     private final String mPrice;
     private final String mURI;
 
-    Item(String name, String author, String fileName) {
+    Item(String name, String price, String uri) {
         mName = name;
-        mPrice = author;
-        mURI = fileName;
+        mPrice = price;
+        mURI = uri;
     }
 
     public int getId() {
@@ -49,5 +53,7 @@ public class Item {
     public String getTicketUri() {
         return mURI;
     }
+
+
 
 }

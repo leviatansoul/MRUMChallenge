@@ -8,12 +8,20 @@
        android:layout_height="match_parent"
        android:gravity="center" >
 
-       <TextView
-           android:id="@+id/ticket_name"
+       <appdynamics.challenge.ui.home.SquareFrameLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="ticket"
-           android:textAlignment="center" />
+           >
+
+           <TextView
+               android:id="@+id/ticket_name"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="ticket"
+               android:textAlignment="center" />
+
+       </appdynamics.challenge.ui.home.SquareFrameLayout>
+
 
    </LinearLayout>
 
