@@ -33,7 +33,7 @@ public class ValidatedTicketAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return Long.parseLong(((ValidatedTicket) getItem(position)).getCode());
+        return Long.parseLong(""+position);
     }
 
     @Override

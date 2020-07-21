@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,8 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import appdynamics.challenge.MainActivity;
 import appdynamics.challenge.R;
+import appdynamics.challenge.ui.detail.DetailActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -31,9 +29,6 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
-
-
-
 
         gridView = (GridView) root.findViewById(R.id.ticket_gridview);
         gridAdapter = new GridAdapter(root.getContext());
@@ -49,8 +44,6 @@ public class HomeFragment extends Fragment {
                 intent.putExtra("name", item.getName());
                 startActivity(intent);
 
-
-
             }
         });
 
@@ -62,21 +55,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        final Button buyNormalTicket = root.findViewById(R.id.normalTicket);
-        buyNormalTicket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeFragment.this.getContext(), "Buying normal ticket", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        final Button buyReducedTicket = root.findViewById(R.id.reducedRequest);
-        buyReducedTicket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeFragment.this.getContext(), "Buying reduced ticket", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return root;
     }

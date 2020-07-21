@@ -11,6 +11,12 @@ import java.util.List;
 public class Item {
 
 
+    enum TICKET_TYPE{
+        NORMAL,
+        STUDENT,
+        ONEDAY,
+        THREEDAY
+    }
 
     public static Item[] ITEMS = new Item[] {
             new Item("Normal Ticket", "2.8", "normal"),

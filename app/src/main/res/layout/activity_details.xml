@@ -24,10 +24,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <appdynamics.challenge.ui.home.SquareFrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+
 
             <TextView
                 android:id="@+id/details_title"
@@ -39,7 +36,12 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:theme="@style/Theme.AppCompat" />
 
-        </appdynamics.challenge.ui.home.SquareFrameLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buyAndValidateButton"
+            android:text="Buy and Validate Ticket"
+            />
 
 
 
