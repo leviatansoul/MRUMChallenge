@@ -1,0 +1,3 @@
+include ':barcode-reader'
+include ':app'
+rootProject.name = "MRUMChallenge"
