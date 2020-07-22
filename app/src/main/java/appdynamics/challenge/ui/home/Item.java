@@ -21,7 +21,7 @@ public class Item {
     public static Item[] ITEMS = new Item[] {
             new Item(TICKET_TYPE.NORMAL, "Normal ticket" , "2.8", "/normal"),
             new Item(TICKET_TYPE.STUDENT, "Student ticket" ,  "1.2", "/reduced"),
-            new Item(TICKET_TYPE.ONEDAY, "Ond day ticket" ,  "11", "/one-day"),
+            new Item(TICKET_TYPE.ONEDAY, "One day ticket" ,  "11", "/one-day"),
             new Item(TICKET_TYPE.THREEDAY, "Three day ticket" ,  "18", "/three-days"),
     };
 
