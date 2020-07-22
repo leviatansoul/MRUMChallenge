@@ -14,6 +14,8 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
+import appdynamics.challenge.UserData;
+
 public class LoginViewModel extends ViewModel {
 
     enum RequestResult {
@@ -22,6 +24,7 @@ public class LoginViewModel extends ViewModel {
         SUCCESS,
         FAILURE
     }
+
 
     private MutableLiveData<RequestResult> loginResult = new MutableLiveData<>();
 
@@ -33,7 +36,7 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void makeLoginRequest(String username, String password) {
+    public void makeLoginRequest(final String username, String password) {
 
         RequestBody formBody = new FormEncodingBuilder()
                 .add("username", username)
@@ -99,6 +102,9 @@ public class LoginViewModel extends ViewModel {
                     Log.d("onResponse Success", result);
 
                     if (result.contains("Approved")) { //If the response contains approved the user is registered and they can move forward.
+
+                        UserData.company = response.header("company");
+                        UserData.username =  username;
 
                         loginResult.postValue(RequestResult.SUCCESS);
 

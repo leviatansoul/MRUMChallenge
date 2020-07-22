@@ -14,9 +14,14 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import appdynamics.challenge.UserData;
+import appdynamics.challenge.ui.home.Item;
 import appdynamics.challenge.ui.login.LoginActivity;
 import appdynamics.challenge.ui.login.LoginViewModel;
+import appdynamics.challenge.ui.notifications.ValidatedTicket;
 
 public class DetailViewModel extends ViewModel {
 
@@ -31,14 +36,24 @@ public class DetailViewModel extends ViewModel {
     }
 
 
-    public void buyAndValidateTicket(final String ticket) {
+    public void insertTicket(Item.TICKET_TYPE type){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        String sDate = formatter.format(date);
+        for(Item item : Item.ITEMS ){
+            if(item.getType() == type){
+                ValidatedTicket.ticketsList.add(new ValidatedTicket(item, sDate, item.getName()+" "+ ((int)(Math.random()*1000000))));
+            }
+        }
+    }
+
+    public void buyAndValidateTicket(Item.TICKET_TYPE ticket_type) {
 
         RequestBody formBody = new FormEncodingBuilder()
-                .add("ticket", ticket)
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.133:8081/buyTicket/normal")
+                .url(UserData.URL_SERVER +"/bus/buyTicket"+Item.getUriFromType(ticket_type))
                 .build();
 
 

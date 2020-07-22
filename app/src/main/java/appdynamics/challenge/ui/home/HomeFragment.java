@@ -2,6 +2,7 @@ package appdynamics.challenge.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import appdynamics.challenge.R;
+import appdynamics.challenge.UserData;
 import appdynamics.challenge.ui.detail.DetailActivity;
+import appdynamics.challenge.ui.login.LoginViewModel;
 
 public class HomeFragment extends Fragment {
 
@@ -34,6 +37,10 @@ public class HomeFragment extends Fragment {
         gridAdapter = new GridAdapter(root.getContext());
         gridView.setAdapter(gridAdapter);
 
+        Log.d("User in Home is ", ""+ UserData.username);
+        Log.d("Commpany in Home is ", ""+UserData.company);
+
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -42,18 +49,13 @@ public class HomeFragment extends Fragment {
                 Item item = (Item) gridView.getItemAtPosition(position);
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("name", item.getName());
+                intent.putExtra("type", item.getType().name());
                 startActivity(intent);
 
             }
         });
 
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
 
 
         return root;

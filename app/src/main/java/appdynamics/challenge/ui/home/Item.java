@@ -11,7 +11,7 @@ import java.util.List;
 public class Item {
 
 
-    enum TICKET_TYPE{
+    public enum TICKET_TYPE{
         NORMAL,
         STUDENT,
         ONEDAY,
@@ -19,10 +19,10 @@ public class Item {
     }
 
     public static Item[] ITEMS = new Item[] {
-            new Item("Normal Ticket", "2.8", "normal"),
-            new Item("Student Ticket", "1.2", "student"),
-            new Item("Onde Day Ticket", "11", "oneday"),
-            new Item("Three Days Ticket", "18", "threedays"),
+            new Item(TICKET_TYPE.NORMAL, "Normal ticket" , "2.8", "/normal"),
+            new Item(TICKET_TYPE.STUDENT, "Student ticket" ,  "1.2", "/reduced"),
+            new Item(TICKET_TYPE.ONEDAY, "Ond day ticket" ,  "11", "/one-day"),
+            new Item(TICKET_TYPE.THREEDAY, "Three day ticket" ,  "18", "/three-days"),
     };
 
     public static Item getItem(int id) {
@@ -34,30 +34,45 @@ public class Item {
         return null;
     }
 
+    private final TICKET_TYPE mType;
     private final String mName;
     private final String mPrice;
     private final String mURI;
 
-    Item(String name, String price, String uri) {
+    Item(TICKET_TYPE type, String name, String price, String uri) {
+        mType = type;
         mName = name;
         mPrice = price;
         mURI = uri;
     }
 
     public int getId() {
-        return mName.hashCode() + mURI.hashCode();
+        return mType.hashCode() + mURI.hashCode();
     }
 
     public String getPrice() {
         return mPrice;
     }
 
-    public String getName() {
-        return mName;
+    public TICKET_TYPE getType() {
+        return mType;
     }
 
     public String getTicketUri() {
         return mURI;
+    }
+
+    public static String getUriFromType(TICKET_TYPE type){
+        for(Item item : ITEMS){
+            if (item.getType() == type){
+                return item.getTicketUri();
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return mName;
     }
 
 

@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private DetailViewModel detailViewModel;
     private String ticket;
+    private Item.TICKET_TYPE type;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         ticket = getIntent().getExtras().get("name").toString();
+        type = Item.TICKET_TYPE.valueOf(getIntent().getStringExtra("type"));
+
 
         getSupportActionBar().setTitle(ticket);
 
@@ -49,10 +52,7 @@ public class DetailActivity extends AppCompatActivity {
                     public void onChanged(Boolean ticketPurchased) {
                         if(ticketPurchased){
 
-                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                            Date date = new Date();
-                            String sDate = formatter.format(date);
-                            ValidatedTicket.ticketsList.add(new ValidatedTicket(Item.ITEMS[0], sDate, ticket+" "+ ((int)(Math.random()*1000000))));
+                            detailViewModel.insertTicket(type);
 
                             Toast.makeText(DetailActivity.this, "Done!", Toast.LENGTH_SHORT).show();
 
@@ -70,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                detailViewModel.buyAndValidateTicket(ticket);
+                detailViewModel.buyAndValidateTicket(type);
 
             }
         });
