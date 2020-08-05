@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="25dp"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.scan.ScanFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/ic_barcode"
+        app:layout_constraintBottom_toTopOf="@+id/text_dashboard"
+   />
 
     <TextView
         android:id="@+id/text_dashboard"
@@ -26,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:text="Scan QR"
+        android:text="Scan"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package appdynamics.challenge.ui.dashboard;
+package appdynamics.challenge.ui.scan;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,25 +20,22 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.notbytes.barcode_reader.BarcodeReaderActivity;
 
 import appdynamics.challenge.R;
-import appdynamics.challenge.ui.detail.DetailActivity;
-import appdynamics.challenge.ui.home.HomeFragment;
-import appdynamics.challenge.ui.home.HomeViewModel;
 
 
-public class DashboardFragment extends Fragment {
+public class ScanFragment extends Fragment {
 
 
-    private DashboardViewModel dashboardViewModel;
+    private ScanViewModel scanViewModel;
     private static final int BARCODE_READER_ACTIVITY_REQUEST = 1208;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        final View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        scanViewModel =
+                ViewModelProviders.of(this).get(ScanViewModel.class);
+        final View root = inflater.inflate(R.layout.fragment_scan, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        scanViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -56,7 +53,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        dashboardViewModel.validateTicket().observe(this, new Observer<Boolean>() {
+        scanViewModel.validateTicket().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean ticketValidated) {
                 if(ticketValidated){
@@ -88,7 +85,7 @@ public class DashboardFragment extends Fragment {
 
         if (requestCode == BARCODE_READER_ACTIVITY_REQUEST && data != null) {
             Barcode barcode = data.getParcelableExtra(BarcodeReaderActivity.KEY_CAPTURED_BARCODE);
-            dashboardViewModel.validateTicket(barcode.rawValue);
+            scanViewModel.validateTicket(barcode.rawValue);
             Toast.makeText(this.getContext(), barcode.rawValue, Toast.LENGTH_SHORT).show();
         }
 

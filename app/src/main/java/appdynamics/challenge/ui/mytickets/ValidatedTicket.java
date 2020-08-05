@@ -1,4 +1,4 @@
-package appdynamics.challenge.ui.notifications;
+package appdynamics.challenge.ui.mytickets;
 
 import java.util.ArrayList;
 import java.util.List;

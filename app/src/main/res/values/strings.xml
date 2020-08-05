@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MRUMChallenge</string>
+    <string name="app_name">MRUM Challenge</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">QR Scanner</string>
     <string name="title_notifications">MyTickets</string>

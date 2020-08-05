@@ -1,16 +1,14 @@
-package appdynamics.challenge.ui.notifications;
+package appdynamics.challenge.ui.mytickets;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import appdynamics.challenge.R;
-import appdynamics.challenge.ui.home.Item;
 
 public class ValidatedTicketAdapter extends BaseAdapter {
 
@@ -50,6 +48,9 @@ public class ValidatedTicketAdapter extends BaseAdapter {
             // Set the TextView's contents
             TextView code = view.findViewById(R.id.ticket_code);
             code.setText(ticket.getCode());
+
+            TextView name = view.findViewById(R.id.ticket_name_item);
+            name.setText(ticket.getTicket().getName());
 
             TextView date = view.findViewById(R.id.ticket_date);
             date.setText(ticket.getDate());

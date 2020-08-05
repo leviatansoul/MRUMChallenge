@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="appdynamics.challenge.ui.dashboard.DashboardFragment"
+        android:name="appdynamics.challenge.ui.scan.ScanFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_scan" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="appdynamics.challenge.ui.notifications.NotificationsFragment"
+        android:name="appdynamics.challenge.ui.mytickets.MyTicketsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_mytickets" />
 </navigation>

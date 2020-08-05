@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("name", item.getName());
                 intent.putExtra("type", item.getType().name());
+                intent.putExtra("price", item.getPrice());
                 startActivity(intent);
 
             }

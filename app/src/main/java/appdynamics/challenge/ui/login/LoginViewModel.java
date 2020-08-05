@@ -44,7 +44,7 @@ public class LoginViewModel extends ViewModel {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.133:8081/login")
+                .url(UserData.URL_SERVER+"/login")
                 .post(formBody)
                 .build();
 

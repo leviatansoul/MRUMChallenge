@@ -1,8 +1,5 @@
 package appdynamics.challenge.ui.detail;
 
-import android.util.Log;
-import android.widget.ListView;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -20,8 +17,7 @@ import java.util.Date;
 import appdynamics.challenge.UserData;
 import appdynamics.challenge.ui.home.Item;
 import appdynamics.challenge.ui.login.LoginActivity;
-import appdynamics.challenge.ui.login.LoginViewModel;
-import appdynamics.challenge.ui.notifications.ValidatedTicket;
+import appdynamics.challenge.ui.mytickets.ValidatedTicket;
 
 public class DetailViewModel extends ViewModel {
 
@@ -42,7 +38,7 @@ public class DetailViewModel extends ViewModel {
         String sDate = formatter.format(date);
         for(Item item : Item.ITEMS ){
             if(item.getType() == type){
-                ValidatedTicket.ticketsList.add(new ValidatedTicket(item, sDate, item.getName()+" "+ ((int)(Math.random()*1000000))));
+                ValidatedTicket.ticketsList.add(new ValidatedTicket(item, sDate, ""+((int)(Math.random()*1000000))));
             }
         }
     }

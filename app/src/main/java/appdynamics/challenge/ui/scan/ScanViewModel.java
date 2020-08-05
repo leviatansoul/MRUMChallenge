@@ -1,4 +1,4 @@
-package appdynamics.challenge.ui.dashboard;
+package appdynamics.challenge.ui.scan;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -17,9 +17,9 @@ import java.util.Date;
 import appdynamics.challenge.UserData;
 import appdynamics.challenge.ui.home.Item;
 import appdynamics.challenge.ui.login.LoginActivity;
-import appdynamics.challenge.ui.notifications.ValidatedTicket;
+import appdynamics.challenge.ui.mytickets.ValidatedTicket;
 
-public class DashboardViewModel extends ViewModel {
+public class ScanViewModel extends ViewModel {
 
     private MutableLiveData<Boolean> ticketValidated =  new MutableLiveData<>();
 
@@ -29,7 +29,7 @@ public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public ScanViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Insert a QR code");
     }

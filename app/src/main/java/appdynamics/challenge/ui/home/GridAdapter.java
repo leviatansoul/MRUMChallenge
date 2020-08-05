@@ -46,6 +46,10 @@ public class GridAdapter extends BaseAdapter {
         TextView name = view.findViewById(R.id.ticket_name);
         name.setText(item.getName());
 
+        TextView price = view.findViewById(R.id.ticket_price);
+        price.setText(item.getPrice());
+
+
         return view;
     }
 
