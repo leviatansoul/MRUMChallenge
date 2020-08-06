@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "appdynamics.challenge"
+        applicationId "appdynamics.challenge_XXXXX" //Put your username in XXXXXX
         minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
@@ -38,3 +38,4 @@ dependencies {
     implementation project(':barcode-reader')
     implementation 'androidx.appcompat:appcompat:1.1.0'
 }
+

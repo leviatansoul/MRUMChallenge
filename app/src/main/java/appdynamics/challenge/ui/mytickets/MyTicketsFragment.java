@@ -14,6 +14,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import appdynamics.challenge.R;
+import appdynamics.challenge.UserData;
+import appdynamics.challenge.ui.detail.DetailActivity;
+import appdynamics.challenge.ui.login.LoginActivity;
 
 public class MyTicketsFragment extends Fragment {
 
@@ -27,8 +30,14 @@ public class MyTicketsFragment extends Fragment {
                 ViewModelProviders.of(this).get(MyTicketsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mytickets, container, false);
 
+        if(UserData.username.equals("MarinaDor")){ //Here you can find the crush, I mean the crash
+            root = inflater.inflate(R.layout.fragment_mytickets, container, true);
+        }
+
         ticketList = (ListView) root.findViewById(R.id.ticketList);
         validatedTicketAdapter = new ValidatedTicketAdapter(root.getContext());
+
+
         ticketList.setAdapter(validatedTicketAdapter);
 
 

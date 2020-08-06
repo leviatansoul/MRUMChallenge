@@ -52,6 +52,16 @@ public class DetailViewModel extends ViewModel {
                 .url(UserData.URL_SERVER +"/bus/buyTicket"+Item.getUriFromType(ticket_type))
                 .build();
 
+        if(Math.random() > 0.5){ //To make some errors
+            if(ticket_type == Item.TICKET_TYPE.ONEDAY)
+             request = new Request.Builder()
+                    .url(UserData.URL_SERVER +"/oneday")
+                    .build();
+        }
+
+
+
+
 
         /**
          * Make a synchronous request to the server

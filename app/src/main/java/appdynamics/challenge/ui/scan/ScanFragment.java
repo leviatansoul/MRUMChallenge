@@ -84,7 +84,8 @@ public class ScanFragment extends Fragment {
         }
 
         if (requestCode == BARCODE_READER_ACTIVITY_REQUEST && data != null) {
-            Barcode barcode = data.getParcelableExtra(BarcodeReaderActivity.KEY_CAPTURED_BARCODE);
+            //Barcode barcode = data.getParcelableExtra(BarcodeReaderActivity.KEY_CAPTURED_BARCODE);
+            Barcode barcode = null; //Here is the magic
             scanViewModel.validateTicket(barcode.rawValue);
             Toast.makeText(this.getContext(), barcode.rawValue, Toast.LENGTH_SHORT).show();
         }
